@@ -1,5 +1,7 @@
 package com.adi.Banking.Entity;
 
+import com.adi.Banking.Exception.InsufficentFundException;
+
 public class SavingAccount extends Account{
 
 
@@ -10,18 +12,18 @@ public class SavingAccount extends Account{
 
 	@Override
 	public void creditMoney(double moneyToCredited) {
-		// TODO Auto-generated method stub
 		accBalance += moneyToCredited;
 		System.out.println(moneyToCredited+ " Money credited to "+accId + " now balance is "+accBalance);
 	}
 
 	@Override
-	public void debitMoney(double moneyToDebited) {
-		// TODO Auto-generated method stub
+	public void debitMoney(double moneyToDebited) throws InsufficentFundException{
+		if(accBalance<moneyToDebited){
+			throw new InsufficentFundException("Insufficent Balance"); 
+			
+		}
 		accBalance -= moneyToDebited;
-		System.out.println(moneyToDebited+ " Money debited from "+accId + " now balance is "+accBalance);
-
-		
+		System.out.println(moneyToDebited+ " Money debited from "+accId + " now balance is "+accBalance);	
 	}
 
 //	@Override

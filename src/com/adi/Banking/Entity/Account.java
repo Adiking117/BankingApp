@@ -1,5 +1,7 @@
 package com.adi.Banking.Entity;
 
+import com.adi.Banking.Exception.InsufficentFundException;
+
 public abstract class Account {
 	int accId;
 	protected double accBalance;
@@ -12,13 +14,18 @@ public abstract class Account {
 
 	public abstract void creditMoney(double moneyToCredited);
 	
-	public abstract void debitMoney(double moneyToDebited);
+	public abstract void debitMoney(double moneyToDebited) throws InsufficentFundException;
 
 //	public abstract void transferMoney(double moneyToTransfer,SavingAccount otherAcc);
 //	public abstract void transferMoney(double moneyToTransfer,CurrentAccount otherAcc);
 
 	public void transferMoney(double moneyToTransfer,Account otherAcc) {
-		this.debitMoney(moneyToTransfer);
+		try{
+			this.debitMoney(moneyToTransfer);
+		}
+		catch(Exception e){
+			e.getStackTrace();
+		}
 		otherAcc.creditMoney(moneyToTransfer);
 		System.out.println("Money transferred Success");
 	}
