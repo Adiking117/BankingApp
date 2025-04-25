@@ -14,6 +14,25 @@ public abstract class Account {
 		this.accBalance = accBalance;
 	}
 
+
+	public int getAccId() {
+		return accId;
+	}
+	public void setAccId(int accId) {
+		this.accId = accId;
+	}
+	public double getAccBalance() {
+		return accBalance;
+	}
+	public void setAccBalance(double accBalance) {
+		this.accBalance = accBalance;
+	}
+
+	@Override
+	public String toString(){
+		return "The Account ID is "+ accId + " and balance is "+ accBalance;
+	}
+
 	public abstract void creditMoney(double moneyToCredited);
 	
 	public abstract void debitMoney(double moneyToDebited) throws InsufficentFundException;
