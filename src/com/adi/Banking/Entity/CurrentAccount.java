@@ -12,7 +12,8 @@ public class CurrentAccount extends Account{
 		// TODO Auto-generated method stub
 		accBalance += moneyToCredited - (moneyToCredited * 10/100);
 		System.out.println(moneyToCredited+ " Money credited to "+accId + " now balance is "+accBalance);
-
+		
+		
 	}
 
 	@Override

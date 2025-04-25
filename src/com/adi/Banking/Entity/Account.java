@@ -19,7 +19,7 @@ public abstract class Account {
 //	public abstract void transferMoney(double moneyToTransfer,SavingAccount otherAcc);
 //	public abstract void transferMoney(double moneyToTransfer,CurrentAccount otherAcc);
 
-	public void transferMoney(double moneyToTransfer,Account otherAcc) {
+	public void transferMoney(double moneyToTransfer,Account otherAcc) throws InsufficentFundException {
 		try{
 			this.debitMoney(moneyToTransfer);
 		}
