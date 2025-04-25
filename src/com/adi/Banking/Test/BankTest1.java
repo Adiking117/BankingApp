@@ -12,20 +12,23 @@ public class BankTest1 {
 		Account shrirajAccount = new SavingAccount(1,10000);
 		Account adityaAccount = new SavingAccount(2,1000);
 		
-		
 		try {
 			shrirajAccount.debitMoney(5000);
 			shrirajAccount.debitMoney(6000);
 		} catch (Exception e) {
-			// TODO: handle exception
-			e.getMessage();
+			System.out.println(e.getMessage());
 		}
 
 
 //		shrirajAccount.debitMoney(5000);
 //		adityaAccount.creditMoney(5000);
 		
-	//	shrirajAccount.transferMoney(5000, adityaAccount);
+		try{
+			shrirajAccount.transferMoney(5000,adityaAccount);
+		}catch (Exception e){
+			System.out.println(e.getMessage());
+		}
+	// shrirajAccount.transferMoney(5000, adityaAccount);
 		// Account otherAcc = (Account) adityaAccount;
 		
 		// Account tanmayAccount = new CurrentAccount(3, 10000);
