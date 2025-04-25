@@ -5,6 +5,8 @@ import com.adi.Banking.Exception.InsufficentFundException;
 public abstract class Account {
 	int accId;
 	protected double accBalance;
+
+	protected static double limit = 10000 ;
 	
 	public Account(int accId, double accBalance) {
 		super();
@@ -19,13 +21,19 @@ public abstract class Account {
 //	public abstract void transferMoney(double moneyToTransfer,SavingAccount otherAcc);
 //	public abstract void transferMoney(double moneyToTransfer,CurrentAccount otherAcc);
 
-	public void transferMoney(double moneyToTransfer,Account otherAcc) throws InsufficentFundException {
-		try{
-			this.debitMoney(moneyToTransfer);
-		}
-		catch(Exception e){
-			e.getStackTrace();
-		}
+	public void transferMoney(double moneyToTransfer,Account otherAcc) throws InsufficentFundException  {
+		// Throw IllegalFundTransferException
+		// No one allowed to transfer money to oursleves
+		
+
+//		try{
+//			this.debitMoney(moneyToTransfer);
+//		}
+//		catch(Exception e){
+//			e.getStackTrace();
+//		}
+
+		this.debitMoney(moneyToTransfer);
 		otherAcc.creditMoney(moneyToTransfer);
 		System.out.println("Money transferred Success");
 	}
